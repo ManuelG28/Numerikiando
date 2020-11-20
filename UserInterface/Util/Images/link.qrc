@@ -1,0 +1,21 @@
+<RCC>
+  <qresource prefix="images">
+    <file>Banner8.png</file>
+    <file>Banner3.png</file>
+    <file>Banner5.png</file>
+    <file>Banner2.png</file>
+    <file>Banner7.png</file>
+    <file>Banner4.png</file>
+    <file>n.png</file>
+    <file>x0.png</file>
+    <file>delta.png</file>
+    <file>function.png</file>
+    <file>Banner10.png</file>
+    <file>Banner9.png</file>
+    <file>Banner11.png</file>
+    <file>home.png</file>
+    <file>back.png</file>
+    <file>Banner6.png</file>
+    <file>Banner1.png</file>
+  </qresource>
+</RCC>
