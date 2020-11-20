@@ -145,7 +145,7 @@ border-radius: 12px;
     <string>Gaussian Elimination with Partial Pivoting</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="total_button">
+  <widget class="QPushButton" name="full_button">
    <property name="geometry">
     <rect>
      <x>240</x>
@@ -162,7 +162,7 @@ border-radius: 12px;
 </string>
    </property>
    <property name="text">
-    <string>Gaussian Elimination with Total Pivoting</string>
+    <string>Gaussian Elimination with Full Pivoting</string>
    </property>
   </widget>
   <widget class="QPushButton" name="back_button">

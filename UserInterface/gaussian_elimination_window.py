@@ -58,14 +58,14 @@ class Ui_gaussian_elimination(object):
 "border-radius: 12px;\n"
 "")
         self.partial_button.setObjectName("partial_button")
-        self.total_button = QtWidgets.QPushButton(gaussian_elimination)
-        self.total_button.setGeometry(QtCore.QRect(240, 450, 391, 51))
-        self.total_button.setStyleSheet("background-color: rgb(250, 250, 250);\n"
+        self.full_button = QtWidgets.QPushButton(gaussian_elimination)
+        self.full_button.setGeometry(QtCore.QRect(240, 450, 391, 51))
+        self.full_button.setStyleSheet("background-color: rgb(250, 250, 250);\n"
 "font: 15pt \"MS Shell Dlg 2\";\n"
 "color: rgb(0, 86, 145);\n"
 "border-radius: 12px;\n"
 "")
-        self.total_button.setObjectName("total_button")
+        self.full_button.setObjectName("full_button")
         self.back_button = QtWidgets.QPushButton(gaussian_elimination)
         self.back_button.setGeometry(QtCore.QRect(20, 580, 80, 50))
         self.back_button.setStyleSheet("background-color: rgb(0, 86, 145);\n"
@@ -89,7 +89,7 @@ class Ui_gaussian_elimination(object):
         gaussian_elimination.setWindowTitle(_translate("gaussian_elimination", "Form"))
         self.simple_button.setText(_translate("gaussian_elimination", "Simple Gaussian Elimination"))
         self.partial_button.setText(_translate("gaussian_elimination", "Gaussian Elimination with Partial Pivoting"))
-        self.total_button.setText(_translate("gaussian_elimination", "Gaussian Elimination with Total Pivoting"))
+        self.full_button.setText(_translate("gaussian_elimination", "Gaussian Elimination with Full Pivoting"))
 import link_rc
 
 
