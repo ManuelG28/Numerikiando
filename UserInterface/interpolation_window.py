@@ -80,6 +80,14 @@ class Ui_interpolation(object):
         self.home_button.setText("")
         self.home_button.setIconSize(QtCore.QSize(80, 50))
         self.home_button.setObjectName("home_button")
+        self.vandermonde_button = QtWidgets.QPushButton(interpolation)
+        self.vandermonde_button.setGeometry(QtCore.QRect(250, 570, 361, 61))
+        self.vandermonde_button.setStyleSheet("background-color: rgb(250, 250, 250);\n"
+"font: 15pt \"MS Shell Dlg 2\";\n"
+"color: rgb(0, 86, 145);\n"
+"border-radius: 12px;\n"
+"")
+        self.vandermonde_button.setObjectName("vandermonde_button")
 
         self.retranslateUi(interpolation)
         QtCore.QMetaObject.connectSlotsByName(interpolation)
@@ -90,6 +98,7 @@ class Ui_interpolation(object):
         self.newtonint_button.setText(_translate("interpolation", "Newton\'s interpolating polynomial"))
         self.lagrangeint_button.setText(_translate("interpolation", "Lagrange interpolating polynomial"))
         self.splines_button.setText(_translate("interpolation", "Splines"))
+        self.vandermonde_button.setText(_translate("interpolation", "Vandermonde"))
 import link_rc
 
 

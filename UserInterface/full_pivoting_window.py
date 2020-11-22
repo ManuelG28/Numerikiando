@@ -15,6 +15,8 @@ class Ui_full_pivoting(object):
     def setupUi(self, full_pivoting):
         full_pivoting.setObjectName("full_pivoting")
         full_pivoting.resize(900, 700)
+        full_pivoting.setMinimumSize(QtCore.QSize(900, 700))
+        full_pivoting.setMaximumSize(QtCore.QSize(900, 700))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -41,13 +43,12 @@ class Ui_full_pivoting(object):
         self.label.setText("")
         self.label.setObjectName("label")
         self.label_5 = QtWidgets.QLabel(full_pivoting)
-        self.label_5.setGeometry(QtCore.QRect(80, 200, 81, 41))
+        self.label_5.setGeometry(QtCore.QRect(90, 210, 81, 41))
         self.label_5.setStyleSheet("background-image: url(:/images/n.png);")
         self.label_5.setText("")
-        self.label_5.setPixmap(QtGui.QPixmap("Designer\\../UserInterface/Util/Images/n.png"))
         self.label_5.setObjectName("label_5")
         self.n_input = QtWidgets.QTextEdit(full_pivoting)
-        self.n_input.setGeometry(QtCore.QRect(220, 200, 91, 41))
+        self.n_input.setGeometry(QtCore.QRect(220, 210, 91, 41))
         font = QtGui.QFont()
         font.setPointSize(14)
         self.n_input.setFont(font)
@@ -60,6 +61,14 @@ class Ui_full_pivoting(object):
 "border-radius: 12px;\n"
 "")
         self.matrix_button.setObjectName("matrix_button")
+        self.run_button = QtWidgets.QPushButton(full_pivoting)
+        self.run_button.setGeometry(QtCore.QRect(380, 630, 151, 51))
+        self.run_button.setStyleSheet("background-color: rgb(250, 250, 250);\n"
+"font: 15pt \"MS Shell Dlg 2\";\n"
+"color: rgb(0, 86, 145);\n"
+"border-radius: 12px;\n"
+"")
+        self.run_button.setObjectName("run_button")
 
         self.retranslateUi(full_pivoting)
         QtCore.QMetaObject.connectSlotsByName(full_pivoting)
@@ -68,6 +77,7 @@ class Ui_full_pivoting(object):
         _translate = QtCore.QCoreApplication.translate
         full_pivoting.setWindowTitle(_translate("full_pivoting", "Form"))
         self.matrix_button.setText(_translate("full_pivoting", "Generate Matrix"))
+        self.run_button.setText(_translate("full_pivoting", "Run method"))
 import link_rc
 
 

@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>A.png</file>
     <file>Banner8.png</file>
     <file>Banner3.png</file>
     <file>Banner5.png</file>

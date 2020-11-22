@@ -14,9 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_nonlinear(object):
     def setupUi(self, nonlinear):
         nonlinear.setObjectName("nonlinear")
-        nonlinear.resize(850, 650)
-        nonlinear.setMinimumSize(QtCore.QSize(850, 650))
-        nonlinear.setMaximumSize(QtCore.QSize(850, 650))
+        nonlinear.resize(850, 700)
+        nonlinear.setMinimumSize(QtCore.QSize(850, 700))
+        nonlinear.setMaximumSize(QtCore.QSize(950, 750))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -44,7 +44,7 @@ class Ui_nonlinear(object):
         self.label.setPixmap(QtGui.QPixmap("Designer\\../UserInterface/Util/Images/Banner3.png"))
         self.label.setObjectName("label")
         self.incremental_button = QtWidgets.QPushButton(nonlinear)
-        self.incremental_button.setGeometry(QtCore.QRect(240, 250, 361, 51))
+        self.incremental_button.setGeometry(QtCore.QRect(240, 210, 361, 51))
         self.incremental_button.setStyleSheet("background-color: rgb(250, 250, 250);\n"
 "font: 15pt \"MS Shell Dlg 2\";\n"
 "color: rgb(0, 86, 145);\n"
@@ -52,7 +52,7 @@ class Ui_nonlinear(object):
 "")
         self.incremental_button.setObjectName("incremental_button")
         self.bisection_button = QtWidgets.QPushButton(nonlinear)
-        self.bisection_button.setGeometry(QtCore.QRect(240, 330, 361, 51))
+        self.bisection_button.setGeometry(QtCore.QRect(240, 280, 361, 51))
         self.bisection_button.setStyleSheet("background-color: rgb(250, 250, 250);\n"
 "font: 15pt \"MS Shell Dlg 2\";\n"
 "color: rgb(0, 86, 145);\n"
@@ -60,7 +60,7 @@ class Ui_nonlinear(object):
 "")
         self.bisection_button.setObjectName("bisection_button")
         self.fixedp_button = QtWidgets.QPushButton(nonlinear)
-        self.fixedp_button.setGeometry(QtCore.QRect(240, 410, 361, 51))
+        self.fixedp_button.setGeometry(QtCore.QRect(240, 350, 361, 51))
         self.fixedp_button.setStyleSheet("background-color: rgb(250, 250, 250);\n"
 "font: 15pt \"MS Shell Dlg 2\";\n"
 "color: rgb(0, 86, 145);\n"
@@ -68,7 +68,7 @@ class Ui_nonlinear(object):
 "")
         self.fixedp_button.setObjectName("fixedp_button")
         self.newton_button = QtWidgets.QPushButton(nonlinear)
-        self.newton_button.setGeometry(QtCore.QRect(240, 490, 361, 51))
+        self.newton_button.setGeometry(QtCore.QRect(240, 420, 361, 51))
         self.newton_button.setStyleSheet("background-color: rgb(250, 250, 250);\n"
 "font: 15pt \"MS Shell Dlg 2\";\n"
 "color: rgb(0, 86, 145);\n"
@@ -76,7 +76,7 @@ class Ui_nonlinear(object):
 "")
         self.newton_button.setObjectName("newton_button")
         self.secant_button = QtWidgets.QPushButton(nonlinear)
-        self.secant_button.setGeometry(QtCore.QRect(240, 570, 361, 51))
+        self.secant_button.setGeometry(QtCore.QRect(240, 490, 361, 51))
         self.secant_button.setStyleSheet("background-color: rgb(250, 250, 250);\n"
 "font: 15pt \"MS Shell Dlg 2\";\n"
 "color: rgb(0, 86, 145);\n"
@@ -84,19 +84,35 @@ class Ui_nonlinear(object):
 "")
         self.secant_button.setObjectName("secant_button")
         self.back_button = QtWidgets.QPushButton(nonlinear)
-        self.back_button.setGeometry(QtCore.QRect(20, 580, 80, 50))
+        self.back_button.setGeometry(QtCore.QRect(20, 640, 80, 50))
         self.back_button.setStyleSheet("background-color: rgb(0, 86, 145);\n"
 "background-image: url(:/images/back.png);")
         self.back_button.setText("")
         self.back_button.setIconSize(QtCore.QSize(80, 50))
         self.back_button.setObjectName("back_button")
         self.home_button = QtWidgets.QPushButton(nonlinear)
-        self.home_button.setGeometry(QtCore.QRect(740, 580, 80, 50))
+        self.home_button.setGeometry(QtCore.QRect(740, 630, 80, 50))
         self.home_button.setStyleSheet("background-color: rgb(0, 86, 145);\n"
 "background-image: url(:/images/home.png);")
         self.home_button.setText("")
         self.home_button.setIconSize(QtCore.QSize(80, 50))
         self.home_button.setObjectName("home_button")
+        self.roots_button = QtWidgets.QPushButton(nonlinear)
+        self.roots_button.setGeometry(QtCore.QRect(240, 560, 361, 51))
+        self.roots_button.setStyleSheet("background-color: rgb(250, 250, 250);\n"
+"font: 15pt \"MS Shell Dlg 2\";\n"
+"color: rgb(0, 86, 145);\n"
+"border-radius: 12px;\n"
+"")
+        self.roots_button.setObjectName("roots_button")
+        self.false_button = QtWidgets.QPushButton(nonlinear)
+        self.false_button.setGeometry(QtCore.QRect(240, 630, 361, 51))
+        self.false_button.setStyleSheet("background-color: rgb(250, 250, 250);\n"
+"font: 15pt \"MS Shell Dlg 2\";\n"
+"color: rgb(0, 86, 145);\n"
+"border-radius: 12px;\n"
+"")
+        self.false_button.setObjectName("false_button")
 
         self.retranslateUi(nonlinear)
         QtCore.QMetaObject.connectSlotsByName(nonlinear)
@@ -109,6 +125,8 @@ class Ui_nonlinear(object):
         self.fixedp_button.setText(_translate("nonlinear", "Fixed Point"))
         self.newton_button.setText(_translate("nonlinear", "Newton"))
         self.secant_button.setText(_translate("nonlinear", "Secant"))
+        self.roots_button.setText(_translate("nonlinear", "Multipleroots"))
+        self.false_button.setText(_translate("nonlinear", "False Rule"))
 import link_rc
 
 
