@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="images">
+    <file>nmax.png</file>
+    <file>functionG.png</file>
+    <file>BannerFixedPoint.png</file>
+    <file>tolerance.png</file>
     <file>A.png</file>
     <file>Banner8.png</file>
     <file>Banner3.png</file>
