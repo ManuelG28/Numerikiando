@@ -17,12 +17,13 @@ class MultipleRootsMethod:
     
     #bisection method
     def roots(self):
+        dataTable = []
         x = Symbol('x')
         f = lambda x: eval(self.fu)
-        df1 = diff(self.fu,x)
-        print("laderivadaaaa: ", df1)
-        df2 = diff(self.fu,x,x)
-
+        f1 = diff(self.fu,x)
+        f2 = diff(self.fu,x,x)
+        df1 = lambda x: eval(str(f1))
+        df2 = lambda x: eval(str(f2))
         self.x0 = float(self.x0)
         self.n = int(self.n)
         self.t = float(self.t)
@@ -44,23 +45,25 @@ class MultipleRootsMethod:
         print("f(xi): " , f(self.x0))
         print("E: ")
         print("")
+        dataTable.append({"iter":i, "xi":self.x0,"f(xi)":f(self.x0), "E":0})
         i += 1
         xi = self.x0 - ((resultf * resultf1) /(math.pow(resultf1, 2) - (resultf * resultf2)))
 
         #Loop start
         while(resultf != 0 and i <= self.n and abs(xi - self.x0) > self.t):
             error = abs(xi - self.x0)
-            x0 = xi
+            self.x0 = xi
             resultf = f(self.x0)
-            resultf1 = df1(x0)
-            resultf2 = df2(x0)
-            xi = x0 - ((resultf * resultf1) / (math.pow(resultf1, 2) - (resultf * resultf2)))
+            resultf1 = df1(self.x0)
+            resultf2 = df2(self.x0)
+            xi = self.x0 - ((resultf * resultf1) / (math.pow(resultf1, 2) - (resultf * resultf2)))
 
             print("Iter: " , i)
             print("x0: " , self.x0)
             print("f(xi): " , resultf)
             print("E: " , error)
             print("")
+            dataTable.append({"iter":i, "xi":self.x0,"f(xi)":resultf, "E":error})
             i += 1
 
         if resultf == 0:
@@ -75,4 +78,4 @@ class MultipleRootsMethod:
             print("f(x0)= " + f(self.x0))
             print("E= " , (abs(xi - self.x0)))
         
-    
+        return dataTable

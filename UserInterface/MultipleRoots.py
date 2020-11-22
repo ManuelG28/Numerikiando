@@ -19,4 +19,12 @@ class MultipleRoots(QtWidgets.QWidget, multipleroots_window.Ui_multipleroots):
         self.n = self.n_input.toPlainText()
         self.t = self.t_input.toPlainText()
         mul = MultipleRootsMethod(self.fu, self.x0, self.n, self.t)
-        mul.roots()
+        dataTab = mul.roots()
+        row=0
+        self.incremental_table.setRowCount(len(dataTab))
+        for dataTab in dataTab:
+            self.incremental_table.setItem(row, 0, QtWidgets.QTableWidgetItem(str(dataTab["iter"])))
+            self.incremental_table.setItem(row, 1, QtWidgets.QTableWidgetItem(str(dataTab["xi"])))
+            self.incremental_table.setItem(row, 2, QtWidgets.QTableWidgetItem(str(dataTab["f(xi)"])))
+            self.incremental_table.setItem(row, 3, QtWidgets.QTableWidgetItem(str(dataTab["E"])))
+            row=row+1
