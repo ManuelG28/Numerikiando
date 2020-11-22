@@ -77,26 +77,48 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label_answer">
+  <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>40</y>
-     <width>641</width>
-     <height>541</height>
+     <x>10</x>
+     <y>30</y>
+     <width>671</width>
+     <height>551</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
    </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(250, 250, 250);</string>
+   <property name="widgetResizable">
+    <bool>true</bool>
    </property>
-   <property name="text">
-    <string/>
-   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>669</width>
+      <height>549</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label_answer">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(250, 250, 250);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
  </widget>
  <resources/>

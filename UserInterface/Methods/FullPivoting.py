@@ -9,20 +9,16 @@ class FullPivotingMethod:
         self.answer = ''
 
     def gaussianElimination(self):
-        self.answer += 'ETAPA 0\n'+str(self.ab)+"\n"+"\n" 
-        print('ETAPA 0')
-        print(self.ab)
-        print('\n')
+        ab_string =  '\n'.join('\t'.join('%0.3f' %x for x in y) for y in self.ab)
+        self.answer += 'ETAPA 0\n'+ab_string+"\n"+"\n" 
         for x in range(1, self.n):
             self.firstStep(x)
             for i in range(x+1, self.n+1):
                 scalar = self.ab[i-1][x-1] / self.ab[x-1][x-1]
                 for j in range(x, self.n+2):
                     self.ab[i-1][j-1] = self.ab[i-1][j-1] - scalar*self.ab[x-1][j-1]
-            self.answer += 'ETAPA'+str(x)+"\n" +str(self.ab)+"\n"+"\n" 
-            print('ETAPA',x)
-            print(self.ab)
-            print('\n')
+            ab_string =  '\n'.join('\t'.join('%0.3f' %x for x in y) for y in self.ab)
+            self.answer += 'ETAPA '+str(x)+"\n" +ab_string+"\n"+"\n" 
         self.regressiveSubstitution()
         print(self.answer)
 
