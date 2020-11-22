@@ -9,6 +9,7 @@ import gaussian_elimination_window
 import splines_window
 import IncrementalSearches
 import FullPivoting
+import PartialPivoting
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -184,6 +185,7 @@ class GaussianWindow(QtWidgets.QWidget, gaussian_elimination_window.Ui_gaussian_
 
         self.back_button.clicked.connect(self.clickBack)
         self.home_button.clicked.connect(self.clickHome)
+        self.partial_button.clicked.connect(self.clickPartial)
         self.full_button.clicked.connect(self.clickFull)
         self.show()
 
@@ -200,6 +202,11 @@ class GaussianWindow(QtWidgets.QWidget, gaussian_elimination_window.Ui_gaussian_
     def clickFull(self):
         self.full_pivoting = FullPivoting.FullPivoting()
         self.full_pivoting.show()
+        self.close()
+    
+    def clickPartial(self):
+        self.partial_pivoting = PartialPivoting.PartialPivoting()
+        self.partial_pivoting.show()
         self.close()
 
 

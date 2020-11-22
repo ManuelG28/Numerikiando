@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>PartialBanner.png</file>
     <file>nmax.png</file>
     <file>functionG.png</file>
     <file>BannerFixedPoint.png</file>

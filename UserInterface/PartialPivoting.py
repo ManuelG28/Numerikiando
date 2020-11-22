@@ -1,15 +1,14 @@
-import full_pivoting_window
+import partial_pivoting_window
 from PyQt5 import QtCore, QtGui, QtWidgets
 import numpy as np
-from Methods.FullPivoting import FullPivotingMethod
 from CustomDialog import CustomDialog
 from MatrixAnswer import MatrixAnswer
+from Methods.PartialPivoting import PartialPivotingMethod
 
 
-
-class FullPivoting(QtWidgets.QWidget, full_pivoting_window.Ui_full_pivoting):
+class PartialPivoting(QtWidgets.QWidget, partial_pivoting_window.Ui_partial_pivoting_window):
     def __init__(self, parent=None):
-        super(FullPivoting, self).__init__(parent)
+        super(PartialPivoting, self).__init__(parent)
         self.setupUi(self)
         self.matrix_button.clicked.connect(self.clickMatrix)
         self.run_button.clicked.connect(self.runMethod)
@@ -22,18 +21,6 @@ class FullPivoting(QtWidgets.QWidget, full_pivoting_window.Ui_full_pivoting):
         self.b_Y = 290
         self.b_adder = 60
         self.b_counter = 0
-
-    def createAttributes(self):
-        self.a_X = 90
-        self.a_Y = 290
-        self.a_adder = 60
-        self.a_counter = 0
-        self.b_X = 710
-        self.b_Y = 290
-        self.b_adder = 60
-        self.b_counter = 0
-        self.matrix_text = np.empty((self.n, self.n), dtype=object)
-        self.vector_text = [None]*self.n
 
     def clickMatrix(self):
         if (self.is_number(self.n_input.toPlainText())):
@@ -65,6 +52,33 @@ class FullPivoting(QtWidgets.QWidget, full_pivoting_window.Ui_full_pivoting):
             self.showRestriction(
                         'N\'s field must be a integer.')
 
+    def runMethod(self):
+        self.a_matrix = np.empty((self.n, self.n))
+        self.b_vector = [None]*self.n
+
+        self.a_matrix = self.constructA()
+        self.b_vector = self.constructB()
+        if (self.a_matrix is not None) and (self.b_vector is not None):
+            ab = np.c_[self.a_matrix, self.b_vector]
+            partial_pivoting = PartialPivotingMethod(ab, self.n)
+            partial_pivoting.gaussianElimination()
+            answer = partial_pivoting.answer
+            self.matrix_answer = MatrixAnswer()
+            self.matrix_answer.show()
+            self.matrix_answer.printAnswer(answer)
+    
+    def createAttributes(self):
+        self.a_X = 90
+        self.a_Y = 290
+        self.a_adder = 60
+        self.a_counter = 0
+        self.b_X = 710
+        self.b_Y = 290
+        self.b_adder = 60
+        self.b_counter = 0
+        self.matrix_text = np.empty((self.n, self.n), dtype=object)
+        self.vector_text = [None]*self.n
+    
     def drawA(self):
         self.matrix_text = np.empty((self.n, self.n), dtype=object)
         for i in range(self.n):
@@ -92,22 +106,7 @@ class FullPivoting(QtWidgets.QWidget, full_pivoting_window.Ui_full_pivoting):
             self.vector_text[i] = self.b
             self.b_Y = self.b_Y+self.b_adder
             self.b_counter = self.b_counter+1
-
-    def runMethod(self):
-        self.a_matrix = np.empty((self.n, self.n))
-        self.b_vector = [None]*self.n
-
-        self.a_matrix = self.constructA()
-        self.b_vector = self.constructB()
-        if (self.a_matrix is not None) and (self.b_vector is not None):
-            ab = np.c_[self.a_matrix, self.b_vector]
-            full_pivoting = FullPivotingMethod(ab, self.n)
-            full_pivoting.gaussianElimination()
-            answer = full_pivoting.answer
-            self.matrix_answer = MatrixAnswer()
-            self.matrix_answer.show()
-            self.matrix_answer.printAnswer(answer)
-
+    
     def constructA(self):
         a_matrix = np.empty((self.n, self.n))
         for i in range(len(self.matrix_text[0])):
@@ -120,7 +119,7 @@ class FullPivoting(QtWidgets.QWidget, full_pivoting_window.Ui_full_pivoting):
                 else:
                     a_matrix[i][j] = float(text)
         return a_matrix
-
+    
     def constructB(self):
         b_vector = [None]*self.n
         for i in range(len(self.vector_text)):
