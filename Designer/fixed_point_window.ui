@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>incremental_searches</class>
- <widget class="QWidget" name="incremental_searches">
+ <class>fixed_point</class>
+ <widget class="QWidget" name="fixed_point">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -104,11 +104,13 @@
    </property>
    <property name="font">
     <font>
+     <family>American Typewriter</family>
      <pointsize>14</pointsize>
+     <kerning>true</kerning>
     </font>
    </property>
   </widget>
-  <widget class="QTextEdit" name="n_input">
+  <widget class="QTextEdit" name="x0">
    <property name="geometry">
     <rect>
      <x>540</x>
@@ -178,7 +180,7 @@ border-radius: 12px;
     <string>Run Method</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="incremental_table">
+  <widget class="QTableWidget" name="fixed_point_table">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -224,31 +226,31 @@ border-radius: 12px;
    </attribute>
    <column>
     <property name="text">
-     <string>Iteration</string>
+     <string>Iter</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>x</string>
+     <string>xi</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>f(xn)</string>
+     <string>g(x)</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>f(xn)*f(xn-1)</string>
+     <string>f(x)</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>Output</string>
+     <string>Error</string>
     </property>
    </column>
   </widget>
-  <widget class="QTextEdit" name="f_input_2">
+  <widget class="QTextEdit" name="g_input">
    <property name="geometry">
     <rect>
      <x>300</x>
@@ -263,7 +265,7 @@ border-radius: 12px;
     </font>
    </property>
   </widget>
-  <widget class="QTextEdit" name="n_input_2">
+  <widget class="QTextEdit" name="tolerance">
    <property name="geometry">
     <rect>
      <x>640</x>
@@ -278,7 +280,7 @@ border-radius: 12px;
     </font>
    </property>
   </widget>
-  <widget class="QTextEdit" name="n_input_3">
+  <widget class="QTextEdit" name="nMax">
    <property name="geometry">
     <rect>
      <x>740</x>
