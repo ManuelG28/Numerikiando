@@ -1,9 +1,6 @@
 import numpy as np
 import sys
 
-n = 4
-
-
 class PartialPivotingMethod:
 
     def __init__(self, ab, n):
@@ -14,7 +11,7 @@ class PartialPivotingMethod:
     def gaussianElimination(self):
         ab_string =  '\n'.join('\t'.join('%0.3f' %x for x in y) for y in self.ab)
         self.answer += 'ETAPA 0\n'+ab_string+"\n"+"\n" 
-        for x in range(1, n):
+        for x in range(1, self.n):
             self.firstStep(x)
             for i in range(x+1, self.n+1):
                 scalar = self.ab[i-1][x-1] / self.ab[x-1][x-1]
@@ -34,7 +31,7 @@ class PartialPivotingMethod:
         '''
         I'll find the largest number in the column with it's row
         '''
-        for i in range(x-1, n):
+        for i in range(x-1, self.n):
             aux = np.abs(self.ab[i][x-1])
             if(aux > largest):
                 largest = aux
@@ -46,11 +43,11 @@ class PartialPivotingMethod:
                 self.ab[row][i] = aux
 
     def regressiveSubstitution(self):
-        answers = [0]*n
-        for i in range(n, 0, -1):
+        answers = [0]*self.n
+        for i in range(self.n, 0, -1):
             ctrl = 0
-            for p in range(i+1, n+1):
+            for p in range(i+1, self.n+1):
                 ctrl = ctrl + self.ab[i-1][p-1] * answers[p-1]
-            answers[i-1] = (self.ab[i-1][n]-ctrl)/self.ab[i-1][i-1]
+            answers[i-1] = (self.ab[i-1][self.n]-ctrl)/self.ab[i-1][i-1]
             self.answer += 'x'+str(i)+' = '+str(answers[i-1])+"\n"+"\n" 
 

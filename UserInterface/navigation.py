@@ -10,6 +10,8 @@ import splines_window
 import IncrementalSearches
 import FullPivoting
 import PartialPivoting
+import LuPartial
+import LuSimple
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -125,6 +127,8 @@ class LuFactoringWindow(QtWidgets.QWidget, lu_factoring_window.Ui_lu_factoring):
 
         self.back_button.clicked.connect(self.clickBack)
         self.home_button.clicked.connect(self.clickHome)
+        self.partiallu_button.clicked.connect(self.clickLuPartial)
+        self.simplelu_button.clicked.connect(self.clickLuSimple)
         self.show()
 
     def clickHome(self):
@@ -137,6 +141,15 @@ class LuFactoringWindow(QtWidgets.QWidget, lu_factoring_window.Ui_lu_factoring):
         self.linear.show()
         self.close()
 
+    def clickLuPartial(self):
+        self.lu_partial = LuPartial.LuPartial()
+        self.lu_partial.show()
+        self.close()
+
+    def clickLuSimple(self):
+        self.lu_simple = LuSimple.LuSimple()
+        self.lu_simple.show()
+        self.close()
 
 class DirectFactoringWindow(QtWidgets.QWidget, direct_factoring_window.Ui_direct_factoring):
     def __init__(self, parent=None):
