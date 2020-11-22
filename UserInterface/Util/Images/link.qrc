@@ -1,5 +1,10 @@
 <RCC>
   <qresource prefix="images">
+    <file>multipleroots_banner.png</file>
+    <file>t.png</file>
+    <file>bmin.png</file>
+    <file>amin.png</file>
+    <file>bisection_banner.png</file>
     <file>PartialBanner.png</file>
     <file>nmax.png</file>
     <file>functionG.png</file>
