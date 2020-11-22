@@ -9,6 +9,7 @@ import gaussian_elimination_window
 import splines_window
 import IncrementalSearches
 import Bisection
+import FixedPoint
 import MultipleRoots
 import FullPivoting
 import PartialPivoting
@@ -87,6 +88,7 @@ class NonLinearWindow(QtWidgets.QWidget, nonlinear_window.Ui_nonlinear):
         self.setupUi(self)
         self.incremental_button.clicked.connect(self.clickIncremental)
         self.bisection_button.clicked.connect(self.clickBisection)
+        self.fixedp_button.clicked.connect(self.clickFixed)
         self.roots_button.clicked.connect(self.clickMultipleRoots)
         self.back_button.clicked.connect(self.clickBack)
         self.home_button.clicked.connect(self.clickBack)
@@ -105,6 +107,11 @@ class NonLinearWindow(QtWidgets.QWidget, nonlinear_window.Ui_nonlinear):
     def clickBisection(self):
         self.bisection = Bisection.Bisection()
         self.bisection.show()
+        self.close()
+
+    def clickFixed(self):
+        self.fixedPoint = FixedPoint.FixedPoint()
+        self.fixedPoint.show()
         self.close()
     
     def clickMultipleRoots(self):

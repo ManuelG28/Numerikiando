@@ -1,19 +1,39 @@
-from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
-import sys
+import fixed_point_window
+import math
+from PyQt5 import QtCore, QtGui, QtWidgets
 
-def window():
-    app = QApplication(sys.argv)
-    win = QMainWindow()
-    win.setGeometry(200,200,300,300)
-    win.setWindowTitle("Suerte HPTAS")
+class FixedPoint(QtWidgets.QWidget, fixed_point_window.Ui_fixed_point):
+    def __init__(self, parent=None):
+        super(FixedPoint, self).__init__(parent)
+        self.setupUi(self)
+        self.run_button.clicked.connect(self.runMethod)
 
-    label= QtWidgets.QLabel(win)
-    label.setText("Gonorrea")
-    label.move(120,180)
+    def runMethod(self):
+        self.tol=float(self.tolerance.toPlainText())
+        self.functionF=self.f_input.toPlainText()
+        self.functionG=self.g_input.toPlainText()
+        self.xInit=float(self.x0.toPlainText())
+        self.nMaxCounter=0
+        self.nMaximo=int(self.nMax.toPlainText())
+        self.iterate(self.xInit)
 
-    win.show()
-    sys.exit(app.exec_())
+    def iterate(self, x):
+        xi= self.evaluateG(x)
+        if abs( xi - x ) < self.tol or self.nMaxCounter == self.nMax:
+            print("| " + str(self.nMaxCounter) + " " + "|  " + str(x) + "  " + "|  " + str(xi) + "  " + "|  " + str(self.evaluateF(x)) + "  " + "|  " + str(abs(xi - x)) + "  |")
+            print("The root reached was " + str(xi))
+            return xi
+        else:
+            print("| " + str(self.nMaxCounter) + " " + "|  " + str(x) + "  " + "|  " + str(xi) + "  " + "|  " + str(self.evaluateF(x)) + "  " + "|  " + str(abs(xi - x)) + "  |")
+            self.nMaxCounter+=1
+            return self.iterate(xi)
 
-window()
+    def evaluateF(self, x):
+        f= lambda x: eval(self.functionF)
+        y= f(x)
+        return y
     
+    def evaluateG(self, x):
+        g= lambda x: eval(self.functionG)
+        y= g(x)
+        return y
