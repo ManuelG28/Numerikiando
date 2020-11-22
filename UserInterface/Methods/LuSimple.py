@@ -9,24 +9,27 @@ class LuSimpleMethod:
         self.answer = ''
 
         self.l = np.identity(n)
-        self.uz = gaussianElimination(self.ab, self.l)
+        self.uz = self.gaussianElimination(self.ab, self.l)
         self.lb = np.c_[self.l,b]
         self.regressiveSubstitution(self.uz,self.n)
 
     def gaussianElimination(self,ab, l):
-        for x in range(1, n):
-            for i in range(x+1, n+1):
+        ab_string =  '\n'.join('\t'.join('%0.3f' %x for x in y) for y in self.ab)
+        l_string =  '\n'.join('\t'.join('%0.3f' %x for x in y) for y in self.l)
+        self.answer += 'ETAPA 0\n\n'+'AB: '+"\n"+ab_string+"\n"+"\n" 
+        self.answer += 'L: '+"\n"+l_string+"\n"+"\n" 
+        for x in range(1, self.n):
+            for i in range(x+1, self.n+1):
                 scalar = ab[i-1][x-1] / ab[x-1][x-1]
-                for j in range(x, n+2):
+                for j in range(x, self.n+2):
                     ab[i-1][j-1] = ab[i-1][j-1] - scalar*ab[x-1][j-1]
                 print('Multipliers', i, ',', x, ':', scalar)
-                l[i-1][x-1] = scalar        
-            print('AB')
-            print(ab)
-            print('L')
-            print(l)
-            print('\n')
-        print(ab)
+                l[i-1][x-1] = scalar   
+            ab_string =  '\n'.join('\t'.join('%0.3f' %x for x in y) for y in self.ab)
+            self.answer += 'ETAPA '+str(x)+"\n"+"\n"+'AB: '+"\n" +ab_string+"\n"+"\n" 
+            self.answer += 'L: '+"\n"
+            l_string =  '\n'.join('\t'.join('%0.3f' %x for x in y) for y in self.l)
+            self.answer += l_string+"\n"+"\n"      
         return ab
 
     def regressiveSubstitution(self,uz,n):
@@ -36,7 +39,7 @@ class LuSimpleMethod:
             for p in range(i+1, n+1):
                 ctrl = ctrl + uz[i-1][p-1] * answers[p-1]
             answers[i-1] = (uz[i-1][n]-ctrl)/uz[i-1][i-1]
-            print("x", i, "=", answers[i-1])
+            self.answer += 'x'+str(i)+' = '+str(answers[i-1])+"\n"+"\n" 
 
 
     def progressiveSubstitution(self,lb,n):

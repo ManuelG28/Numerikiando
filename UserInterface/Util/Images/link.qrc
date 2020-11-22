@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="images">
+    <file>lu_pivoting.png</file>
+    <file>lu_simple.png</file>
     <file>multipleroots_banner.png</file>
     <file>t.png</file>
     <file>bmin.png</file>

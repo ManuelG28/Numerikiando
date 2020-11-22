@@ -99,7 +99,11 @@ class LuSimple(QtWidgets.QWidget, lu_simple_window.Ui_lu_simple_window):
         self.a_matrix = self.constructA()
         self.b_vector = self.constructB()
         if (self.a_matrix is not None) and (self.b_vector is not None):
-            print('xd')
+            self.lu_simple = LuSimpleMethod(self.a_matrix,self.n,self.b_vector)
+            answer = self.lu_simple.answer
+            self.matrix_answer = MatrixAnswer()
+            self.matrix_answer.show()
+            self.matrix_answer.printAnswer(answer)
             
 
     def constructA(self):

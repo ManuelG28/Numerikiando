@@ -39,12 +39,15 @@ class Ui_lu_simple_window(object):
         lu_simple_window.setPalette(palette)
         self.label = QtWidgets.QLabel(lu_simple_window)
         self.label.setGeometry(QtCore.QRect(60, 20, 771, 161))
+        self.label.setStyleSheet("background-image: url(:/images/lu_simple.png);")
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(lu_simple_window)
         self.label_2.setGeometry(QtCore.QRect(90, 210, 81, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_2.setFont(font)
+        self.label_2.setStyleSheet("background-image: url(:/images/n.png);")
+        self.label_2.setText("")
         self.label_2.setObjectName("label_2")
         self.n_input = QtWidgets.QTextEdit(lu_simple_window)
         self.n_input.setGeometry(QtCore.QRect(220, 210, 91, 41))
@@ -76,9 +79,9 @@ class Ui_lu_simple_window(object):
         _translate = QtCore.QCoreApplication.translate
         lu_simple_window.setWindowTitle(_translate("lu_simple_window", "Form"))
         self.label.setText(_translate("lu_simple_window", "xd"))
-        self.label_2.setText(_translate("lu_simple_window", "N:"))
         self.matrix_button.setText(_translate("lu_simple_window", "Generate Matrix"))
         self.run_button.setText(_translate("lu_simple_window", "Run method"))
+import link_rc
 
 
 if __name__ == "__main__":
