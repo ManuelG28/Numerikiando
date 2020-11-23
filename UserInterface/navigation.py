@@ -18,6 +18,8 @@ import FullPivoting
 import PartialPivoting
 import LuPartial
 import LuSimple
+import InterNewton
+import Lagrange
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -128,6 +130,8 @@ class InterpolationWindow(QtWidgets.QWidget, interpolation_window.Ui_interpolati
         super(InterpolationWindow, self).__init__(parent)
         self.setupUi(self)
         self.splines_button.clicked.connect(self.clickSplines)
+        self.newtonint_button.clicked.connect(self.clickInterNewton)
+        self.lagrangeint_button.clicked.connect(self.clickLagrange)
         self.back_button.clicked.connect(self.clickBack)
         self.home_button.clicked.connect(self.clickBack)
         self.show()
@@ -136,12 +140,21 @@ class InterpolationWindow(QtWidgets.QWidget, interpolation_window.Ui_interpolati
         self.home = HomeWindow()
         self.home.show()
         self.close()
-
+    
+    def clickInterNewton(self):
+        self.ne = InterNewton.InterNewton()
+        self.ne.show()
+        self.close()
+    
+    def clickLagrange(self):
+        self.la = Lagrange.Lagrange()
+        self.la.show()
+        self.close()
+    
     def clickSplines(self):
         self.splines = SplinesWindow()
         self.splines.show()
         self.close()
-
 
 class LuFactoringWindow(QtWidgets.QWidget, lu_factoring_window.Ui_lu_factoring):
     def __init__(self, parent=None):
