@@ -10,6 +10,9 @@ import splines_window
 import IncrementalSearches
 import Bisection
 import FixedPoint
+import Newton
+import Secant
+import FakeRule
 import MultipleRoots
 import Jacobi
 import GaussSeidel
@@ -94,6 +97,9 @@ class NonLinearWindow(QtWidgets.QWidget, nonlinear_window.Ui_nonlinear):
         self.incremental_button.clicked.connect(self.clickIncremental)
         self.bisection_button.clicked.connect(self.clickBisection)
         self.fixedp_button.clicked.connect(self.clickFixed)
+        self.newton_button.clicked.connect(self.clickNewton)
+        self.secant_button.clicked.connect(self.clickSecant)
+        self.false_button.clicked.connect(self.clickFake)
         self.roots_button.clicked.connect(self.clickMultipleRoots)
         self.back_button.clicked.connect(self.clickBack)
         self.home_button.clicked.connect(self.clickBack)
@@ -117,6 +123,21 @@ class NonLinearWindow(QtWidgets.QWidget, nonlinear_window.Ui_nonlinear):
     def clickFixed(self):
         self.fixedPoint = FixedPoint.FixedPoint()
         self.fixedPoint.show()
+        self.close()
+
+    def clickNewton(self):
+        	self.newton = Newton.Newton()
+        	self.newton.show()
+        	self.close()
+
+    def clickSecant(self):
+        self.secant = Secant.Secant()
+        self.secant.show()
+        self.close()
+
+    def clickFake(self):
+        self.fake_rule = FakeRule.FakeRule()
+        self.fake_rule.show()
         self.close()
     
     def clickMultipleRoots(self):

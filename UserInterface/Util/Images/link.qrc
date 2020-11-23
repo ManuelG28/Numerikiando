@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="images">
+    <file>fake_rule_banner.png</file>
+    <file>secant_banner.png</file>
+    <file>fderivated.png</file>
+    <file>newton_banner.png</file>
     <file>lu_pivoting.png</file>
     <file>lu_simple.png</file>
     <file>multipleroots_banner.png</file>
