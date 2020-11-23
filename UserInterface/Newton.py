@@ -37,6 +37,7 @@ class Newton(QtWidgets.QWidget, newton_window.Ui_Newton):
 
     def showFinalValue(self, answ):
         dialog = CustomDialog(self, "The root reached was: "+str(answ))
+        dialog.setWindowTitle("Success!")
         dialog.show()
 
     def iterate(self, x):

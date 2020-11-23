@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="images">
+    <file>bFR.png</file>
+    <file>aFR.png</file>
     <file>fake_rule_banner.png</file>
     <file>secant_banner.png</file>
     <file>fderivated.png</file>
@@ -25,6 +27,7 @@
     <file>Banner4.png</file>
     <file>n.png</file>
     <file>x0.png</file>
+    <file>X1.png</file>
     <file>delta.png</file>
     <file>function.png</file>
     <file>Banner10.png</file>
