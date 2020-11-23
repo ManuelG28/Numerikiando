@@ -141,25 +141,6 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>200</y>
-     <width>81</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/amin.png);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap>../UserInterface/Util/Images/x0.png</pixmap>
-   </property>
-  </widget>
   <widget class="QPushButton" name="run_button">
    <property name="geometry">
     <rect>
@@ -332,7 +313,23 @@ border-radius: 12px;
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label_7">
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>200</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/aFR.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
      <x>450</x>
@@ -342,13 +339,10 @@ border-radius: 12px;
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/amin.png);</string>
+    <string notr="true">background-image: url(:/images/bFR.png);</string>
    </property>
    <property name="text">
     <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap>../UserInterface/Util/Images/x0.png</pixmap>
    </property>
   </widget>
  </widget>
