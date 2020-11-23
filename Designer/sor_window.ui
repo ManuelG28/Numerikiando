@@ -99,10 +99,10 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">image: url(:/images/sor_banner.png);</string>
    </property>
    <property name="text">
-    <string>SOR</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
@@ -110,7 +110,7 @@
     <rect>
      <x>30</x>
      <y>200</y>
-     <width>81</width>
+     <width>61</width>
      <height>41</height>
     </rect>
    </property>
@@ -124,7 +124,7 @@
   <widget class="QTextEdit" name="n_input">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>90</x>
      <y>200</y>
      <width>91</width>
      <height>41</height>
@@ -139,7 +139,7 @@
   <widget class="QPushButton" name="matrix_button">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>200</x>
      <y>200</y>
      <width>171</width>
      <height>51</height>
@@ -179,7 +179,7 @@ border-radius: 12px;
   <widget class="QTextEdit" name="t_input">
    <property name="geometry">
     <rect>
-     <x>470</x>
+     <x>440</x>
      <y>200</y>
      <width>121</width>
      <height>41</height>
@@ -194,14 +194,17 @@ border-radius: 12px;
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>210</y>
+     <x>400</x>
+     <y>200</y>
      <width>61</width>
-     <height>21</height>
+     <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/images/t.png);</string>
+   </property>
    <property name="text">
-    <string>Toletance</string>
+    <string/>
    </property>
   </widget>
   <widget class="QTextEdit" name="iter_input">
@@ -222,14 +225,17 @@ border-radius: 12px;
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>620</x>
+     <x>600</x>
      <y>200</y>
-     <width>51</width>
-     <height>31</height>
+     <width>71</width>
+     <height>51</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/images/nmax.png);</string>
+   </property>
    <property name="text">
-    <string>Iterations</string>
+    <string/>
    </property>
   </widget>
   <widget class="QTextEdit" name="w_input">
@@ -250,14 +256,17 @@ border-radius: 12px;
   <widget class="QLabel" name="label_w">
    <property name="geometry">
     <rect>
-     <x>790</x>
-     <y>200</y>
-     <width>21</width>
-     <height>31</height>
+     <x>760</x>
+     <y>190</y>
+     <width>51</width>
+     <height>51</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/images/w.png);</string>
+   </property>
    <property name="text">
-    <string>w</string>
+    <string/>
    </property>
   </widget>
  </widget>

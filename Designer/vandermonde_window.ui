@@ -99,10 +99,10 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">image: url(:/images/vandermonde_banner.png);</string>
    </property>
    <property name="text">
-    <string>Vandermonde</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">

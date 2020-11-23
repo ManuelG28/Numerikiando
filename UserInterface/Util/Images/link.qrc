@@ -1,5 +1,12 @@
 <RCC>
   <qresource prefix="images">
+    <file>vandermonde_banner.png</file>
+    <file>w.png</file>
+    <file>sor_banner.png</file>
+    <file>lagrange_anner.png</file>
+    <file>jacobi_banner.png</file>
+    <file>internewton_banner.png</file>
+    <file>gausseidel_anner.png</file>
     <file>fake_rule_banner.png</file>
     <file>secant_banner.png</file>
     <file>fderivated.png</file>

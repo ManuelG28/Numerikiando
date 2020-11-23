@@ -49,7 +49,7 @@ class BisectionMethod:
             print("f(xm): " , f(xm))
             print("E: ")
             print("")
-            dataTable.append({"iter":i, "a":self.a, "xm":xm, "b":self.b, "f(xm)":f(xm), "E":0})
+            dataTable.append({"iter":i, "a":round(self.a, 6), "xm":round(xm,6), "b":round(self.b,6), "f(xm)":round(f(xm), 6), "E":0})
             i += 1
 
             #Loop start
@@ -75,7 +75,7 @@ class BisectionMethod:
                 print("E: " , (abs(x0 - xm)))
                 print("")
 
-                dataTable.append({"iter":(i-1), "a":self.a, "xm":xm, "b":self.b, "f(xm)":f(xm), "E":(abs(x0 - xm))})
+                dataTable.append({"iter":(i-1), "a":round(self.a,6), "xm":round(xm,6), "b":round(self.b,6), "f(xm)":round(f(xm),6), "E":round((abs(x0 - xm)),6)})
             
             
 

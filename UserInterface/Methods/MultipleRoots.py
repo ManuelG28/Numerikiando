@@ -45,7 +45,7 @@ class MultipleRootsMethod:
         print("f(xi): " , f(self.x0))
         print("E: ")
         print("")
-        dataTable.append({"iter":i, "xi":self.x0,"f(xi)":f(self.x0), "E":0})
+        dataTable.append({"iter":i, "xi":round(self.x0,6),"f(xi)":round(f(self.x0),6), "E":0})
         i += 1
         xi = self.x0 - ((resultf * resultf1) /(math.pow(resultf1, 2) - (resultf * resultf2)))
 
@@ -63,7 +63,7 @@ class MultipleRootsMethod:
             print("f(xi): " , resultf)
             print("E: " , error)
             print("")
-            dataTable.append({"iter":i, "xi":self.x0,"f(xi)":resultf, "E":error})
+            dataTable.append({"iter":i, "xi":round(self.x0,6),"f(xi)":round(resultf,6), "E":round(error,6)})
             i += 1
 
         if resultf == 0:
