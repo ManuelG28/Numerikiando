@@ -11,6 +11,9 @@ import IncrementalSearches
 import Bisection
 import FixedPoint
 import MultipleRoots
+import Jacobi
+import GaussSeidel
+import Sor
 import FullPivoting
 import PartialPivoting
 import LuPartial
@@ -198,6 +201,9 @@ class IterativeWindow(QtWidgets.QWidget, iterative_window.Ui_iterative):
 
         self.back_button.clicked.connect(self.clickBack)
         self.home_button.clicked.connect(self.clickHome)
+        self.jacobi_button.clicked.connect(self.clickJacobi)
+        self.gauss_button.clicked.connect(self.clickGaussSeidel)
+        self.sor_button.clicked.connect(self.clickSor)
         self.show()
 
     def clickHome(self):
@@ -208,6 +214,21 @@ class IterativeWindow(QtWidgets.QWidget, iterative_window.Ui_iterative):
     def clickBack(self):
         self.linear = LinearWindow()
         self.linear.show()
+        self.close()
+
+    def clickJacobi(self):
+        self.jacobi = Jacobi.Jacobi()
+        self.jacobi.show()
+        self.close()
+    
+    def clickGaussSeidel(self):
+        self.gauss_seidel = GaussSeidel.GaussSeidel()
+        self.gauss_seidel.show()
+        self.close()
+    
+    def clickSor(self):
+        self.sor = Sor.Sor()
+        self.sor.show()
         self.close()
 
 
