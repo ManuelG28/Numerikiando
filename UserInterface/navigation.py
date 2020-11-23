@@ -23,6 +23,7 @@ import LuPartial
 import LuSimple
 import InterNewton
 import Lagrange
+import Vandermonde
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -153,6 +154,7 @@ class InterpolationWindow(QtWidgets.QWidget, interpolation_window.Ui_interpolati
         self.splines_button.clicked.connect(self.clickSplines)
         self.newtonint_button.clicked.connect(self.clickInterNewton)
         self.lagrangeint_button.clicked.connect(self.clickLagrange)
+        self.vandermonde_button.clicked.connect(self.clickVandermonde)
         self.back_button.clicked.connect(self.clickBack)
         self.home_button.clicked.connect(self.clickBack)
         self.show()
@@ -170,6 +172,11 @@ class InterpolationWindow(QtWidgets.QWidget, interpolation_window.Ui_interpolati
     def clickLagrange(self):
         self.la = Lagrange.Lagrange()
         self.la.show()
+        self.close()
+    
+    def clickVandermonde(self):
+        self.van = Vandermonde.Vandermonde()
+        self.van.show()
         self.close()
     
     def clickSplines(self):
