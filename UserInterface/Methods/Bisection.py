@@ -65,7 +65,7 @@ class BisectionMethod:
                 x0 = xm
                 y0 = result
                 xm = (self.a + self.b) / 2
-                result = f(xm);
+                result = f(xm)
                 i += 1
 
                 print("a: " , self.a)
