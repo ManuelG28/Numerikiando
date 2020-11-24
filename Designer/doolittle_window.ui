@@ -89,22 +89,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>20</y>
-     <width>771</width>
-     <height>161</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">image: url(:/images/doolittle.png);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
@@ -174,6 +158,22 @@ border-radius: 12px;
    </property>
    <property name="text">
     <string>Run method</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>20</y>
+     <width>771</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/images/doolittle.png);</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

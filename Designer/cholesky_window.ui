@@ -99,7 +99,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/images/doolittle.png);</string>
+    <string notr="true">image: url(:/images/cholesky.png);</string>
    </property>
    <property name="text">
     <string/>

@@ -39,7 +39,8 @@ class Ui_vandermonde(object):
         vandermonde.setPalette(palette)
         self.label = QtWidgets.QLabel(vandermonde)
         self.label.setGeometry(QtCore.QRect(60, 20, 771, 161))
-        self.label.setStyleSheet("")
+        self.label.setStyleSheet("image: url(:/images/vandermonde_banner.png);")
+        self.label.setText("")
         self.label.setObjectName("label")
         self.label_5 = QtWidgets.QLabel(vandermonde)
         self.label_5.setGeometry(QtCore.QRect(30, 200, 81, 41))
@@ -75,7 +76,6 @@ class Ui_vandermonde(object):
     def retranslateUi(self, vandermonde):
         _translate = QtCore.QCoreApplication.translate
         vandermonde.setWindowTitle(_translate("vandermonde", "Form"))
-        self.label.setText(_translate("vandermonde", "Vandermonde"))
         self.vector_button.setText(_translate("vandermonde", "Generate Vectors"))
         self.run_button.setText(_translate("vandermonde", "Run method"))
 import link_rc

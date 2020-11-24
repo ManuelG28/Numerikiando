@@ -39,7 +39,7 @@ class Ui_cholesky(object):
         cholesky.setPalette(palette)
         self.label = QtWidgets.QLabel(cholesky)
         self.label.setGeometry(QtCore.QRect(60, 20, 771, 161))
-        self.label.setStyleSheet("image: url(:/images/doolittle.png);")
+        self.label.setStyleSheet("image: url(:/images/cholesky.png);")
         self.label.setText("")
         self.label.setObjectName("label")
         self.label_5 = QtWidgets.QLabel(cholesky)

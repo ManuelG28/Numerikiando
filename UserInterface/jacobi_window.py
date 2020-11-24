@@ -39,10 +39,11 @@ class Ui_jacobi(object):
         jacobi.setPalette(palette)
         self.label = QtWidgets.QLabel(jacobi)
         self.label.setGeometry(QtCore.QRect(60, 20, 771, 161))
-        self.label.setStyleSheet("")
+        self.label.setStyleSheet("image: url(:/images/jacobi_banner.png);")
+        self.label.setText("")
         self.label.setObjectName("label")
         self.label_5 = QtWidgets.QLabel(jacobi)
-        self.label_5.setGeometry(QtCore.QRect(30, 200, 81, 41))
+        self.label_5.setGeometry(QtCore.QRect(50, 200, 81, 41))
         self.label_5.setStyleSheet("background-image: url(:/images/n.png);")
         self.label_5.setText("")
         self.label_5.setObjectName("label_5")
@@ -75,7 +76,9 @@ class Ui_jacobi(object):
         self.t_input.setFont(font)
         self.t_input.setObjectName("t_input")
         self.label_2 = QtWidgets.QLabel(jacobi)
-        self.label_2.setGeometry(QtCore.QRect(470, 210, 61, 21))
+        self.label_2.setGeometry(QtCore.QRect(470, 200, 71, 41))
+        self.label_2.setStyleSheet("image: url(:/images/t.png);")
+        self.label_2.setText("")
         self.label_2.setObjectName("label_2")
         self.iter_input = QtWidgets.QTextEdit(jacobi)
         self.iter_input.setGeometry(QtCore.QRect(780, 200, 81, 41))
@@ -84,7 +87,9 @@ class Ui_jacobi(object):
         self.iter_input.setFont(font)
         self.iter_input.setObjectName("iter_input")
         self.label_3 = QtWidgets.QLabel(jacobi)
-        self.label_3.setGeometry(QtCore.QRect(720, 200, 51, 31))
+        self.label_3.setGeometry(QtCore.QRect(710, 200, 71, 41))
+        self.label_3.setStyleSheet("image: url(:/images/nmax.png);")
+        self.label_3.setText("")
         self.label_3.setObjectName("label_3")
 
         self.retranslateUi(jacobi)
@@ -93,11 +98,8 @@ class Ui_jacobi(object):
     def retranslateUi(self, jacobi):
         _translate = QtCore.QCoreApplication.translate
         jacobi.setWindowTitle(_translate("jacobi", "Form"))
-        self.label.setText(_translate("jacobi", "Jacobi"))
         self.matrix_button.setText(_translate("jacobi", "Generate Matrix"))
         self.run_button.setText(_translate("jacobi", "Run method"))
-        self.label_2.setText(_translate("jacobi", "Toletance"))
-        self.label_3.setText(_translate("jacobi", "Iterations"))
 import link_rc
 
 

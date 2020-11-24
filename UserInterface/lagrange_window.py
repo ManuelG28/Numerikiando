@@ -39,7 +39,8 @@ class Ui_lagrange(object):
         lagrange.setPalette(palette)
         self.label = QtWidgets.QLabel(lagrange)
         self.label.setGeometry(QtCore.QRect(60, 20, 771, 161))
-        self.label.setStyleSheet("")
+        self.label.setStyleSheet("image: url(:/images/lagrange_anner.png);")
+        self.label.setText("")
         self.label.setObjectName("label")
         self.label_5 = QtWidgets.QLabel(lagrange)
         self.label_5.setGeometry(QtCore.QRect(30, 200, 81, 41))
@@ -75,7 +76,6 @@ class Ui_lagrange(object):
     def retranslateUi(self, lagrange):
         _translate = QtCore.QCoreApplication.translate
         lagrange.setWindowTitle(_translate("lagrange", "Form"))
-        self.label.setText(_translate("lagrange", "Lagrange"))
         self.vector_button.setText(_translate("lagrange", "Generate Vectors"))
         self.run_button.setText(_translate("lagrange", "Run method"))
 import link_rc

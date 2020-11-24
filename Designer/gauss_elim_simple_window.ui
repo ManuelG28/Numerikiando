@@ -99,10 +99,10 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">isbdviaebhfvildfvke</string>
+    <string notr="true">image: url(:/images/gauss.png);</string>
    </property>
    <property name="text">
-    <string>gaussian elimination simple</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">

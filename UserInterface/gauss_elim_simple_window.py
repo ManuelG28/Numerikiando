@@ -39,7 +39,8 @@ class Ui_gauss_elim_simple(object):
         gauss_elim_simple.setPalette(palette)
         self.label = QtWidgets.QLabel(gauss_elim_simple)
         self.label.setGeometry(QtCore.QRect(60, 20, 771, 161))
-        self.label.setStyleSheet("isbdviaebhfvildfvke")
+        self.label.setStyleSheet("image: url(:/images/gauss.png);")
+        self.label.setText("")
         self.label.setObjectName("label")
         self.label_5 = QtWidgets.QLabel(gauss_elim_simple)
         self.label_5.setGeometry(QtCore.QRect(90, 210, 81, 41))
@@ -75,7 +76,6 @@ class Ui_gauss_elim_simple(object):
     def retranslateUi(self, gauss_elim_simple):
         _translate = QtCore.QCoreApplication.translate
         gauss_elim_simple.setWindowTitle(_translate("gauss_elim_simple", "Form"))
-        self.label.setText(_translate("gauss_elim_simple", "gaussian elimination simple"))
         self.matrix_button.setText(_translate("gauss_elim_simple", "Generate Matrix"))
         self.run_button.setText(_translate("gauss_elim_simple", "Run method"))
 import link_rc

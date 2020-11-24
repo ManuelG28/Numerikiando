@@ -1,5 +1,10 @@
 <RCC>
   <qresource prefix="images">
+    <file>gauss.png</file>
+    <file>doolittle.png</file>
+    <file>doolittle.png</file>
+    <file>crout.png</file>
+    <file>cholesky.png</file>
     <file>logo_numerikiando.png</file>
     <file>cubic_spline_banner.png</file>
     <file>square_spline_banner.png</file>

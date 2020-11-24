@@ -37,11 +37,6 @@ class Ui_doolittle(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
         doolittle.setPalette(palette)
-        self.label = QtWidgets.QLabel(doolittle)
-        self.label.setGeometry(QtCore.QRect(60, 20, 771, 161))
-        self.label.setStyleSheet("image: url(:/images/doolittle.png);")
-        self.label.setText("")
-        self.label.setObjectName("label")
         self.label_5 = QtWidgets.QLabel(doolittle)
         self.label_5.setGeometry(QtCore.QRect(90, 210, 81, 41))
         self.label_5.setStyleSheet("background-image: url(:/images/n.png);")
@@ -69,6 +64,11 @@ class Ui_doolittle(object):
 "border-radius: 12px;\n"
 "")
         self.run_button.setObjectName("run_button")
+        self.label = QtWidgets.QLabel(doolittle)
+        self.label.setGeometry(QtCore.QRect(70, 20, 771, 161))
+        self.label.setStyleSheet("image: url(:/images/doolittle.png);")
+        self.label.setText("")
+        self.label.setObjectName("label")
 
         self.retranslateUi(doolittle)
         QtCore.QMetaObject.connectSlotsByName(doolittle)

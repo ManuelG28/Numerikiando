@@ -39,7 +39,8 @@ class Ui_internewton(object):
         internewton.setPalette(palette)
         self.label = QtWidgets.QLabel(internewton)
         self.label.setGeometry(QtCore.QRect(60, 20, 771, 161))
-        self.label.setStyleSheet("")
+        self.label.setStyleSheet("image: url(:/images/internewton_banner.png);")
+        self.label.setText("")
         self.label.setObjectName("label")
         self.label_5 = QtWidgets.QLabel(internewton)
         self.label_5.setGeometry(QtCore.QRect(30, 200, 81, 41))
@@ -75,7 +76,6 @@ class Ui_internewton(object):
     def retranslateUi(self, internewton):
         _translate = QtCore.QCoreApplication.translate
         internewton.setWindowTitle(_translate("internewton", "Form"))
-        self.label.setText(_translate("internewton", "Interpolation Newton"))
         self.vector_button.setText(_translate("internewton", "Generate Vectors"))
         self.run_button.setText(_translate("internewton", "Run method"))
 import link_rc
