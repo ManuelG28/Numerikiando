@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="images">
+    <file>cubic_spline_banner.png</file>
+    <file>square_spline_banner.png</file>
+    <file>linear_spline_banner.png</file>
     <file>vandermonde_banner.png</file>
     <file>w.png</file>
     <file>sor_banner.png</file>

@@ -17,6 +17,9 @@ import MultipleRoots
 import Jacobi
 import GaussSeidel
 import Sor
+import LinearSpline
+import SquareSpline
+import CubicSpline
 import FullPivoting
 import PartialPivoting
 import LuPartial
@@ -310,9 +313,27 @@ class SplinesWindow(QtWidgets.QWidget, splines_window.Ui_splines):
         super(SplinesWindow, self).__init__(parent)
         self.setupUi(self)
 
+        self.linear_button.clicked.connect(self.clickLinear)
+        self.quadratic_button.clicked.connect(self.clickSquare)
+        self.cubric_button.clicked.connect(self.clickCubic)
         self.back_button.clicked.connect(self.clickBack)
         self.home_button.clicked.connect(self.clickHome)
         self.show()
+
+    def clickLinear(self):
+        self.linear_spline = LinearSpline.LinearSpline()
+        self.linear_spline.show()
+        self.close()
+
+    def clickSquare(self):
+        self.square_spline = SquareSpline.SquareSpline()
+        self.square_spline.show()
+        self.close()
+
+    def clickCubic(self):
+        self.cubic_spline = CubicSpline.CubicSpline()
+        self.cubic_spline.show()
+        self.close()
 
     def clickHome(self):
         self.home = HomeWindow()
@@ -323,9 +344,6 @@ class SplinesWindow(QtWidgets.QWidget, splines_window.Ui_splines):
         self.linear = LinearWindow()
         self.linear.show()
         self.close()
-
-
-
 
 app = QtWidgets.QApplication(sys.argv)
 window = HomeWindow()
