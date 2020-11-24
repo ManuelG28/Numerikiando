@@ -99,11 +99,15 @@ class LuPartial(QtWidgets.QWidget, lu_partial_window.Ui_lu_partial_window):
         self.a_matrix = self.constructA()
         self.b_vector = self.constructB()
         if (self.a_matrix is not None) and (self.b_vector is not None):
-            self.lu_partial = LuPartialMethod(self.a_matrix,self.n,self.b_vector)
-            answer = self.lu_partial.answer
-            self.matrix_answer = MatrixAnswer()
-            self.matrix_answer.show()
-            self.matrix_answer.printAnswer(answer)
+            if np.linalg.det(self.a_matrix) != 0:
+                self.lu_partial = LuPartialMethod(self.a_matrix,self.n,self.b_vector)
+                answer = self.lu_partial.answer
+                self.matrix_answer = MatrixAnswer()
+                self.matrix_answer.show()
+                self.matrix_answer.printAnswer(answer)
+            else:
+                self.showRestriction(
+                    'The determinant of A matrix is equal to zero,\n you can not run this method.')
 
     def constructA(self):
         a_matrix = np.empty((self.n, self.n))

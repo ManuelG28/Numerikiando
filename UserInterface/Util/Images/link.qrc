@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>logo_numerikiando.png</file>
     <file>cubic_spline_banner.png</file>
     <file>square_spline_banner.png</file>
     <file>linear_spline_banner.png</file>

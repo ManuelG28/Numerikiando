@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>HomeWindow</class>
- <widget class="QMainWindow" name="HomeWindow">
+ <class>methods_window</class>
+ <widget class="QMainWindow" name="methods_window">
   <property name="enabled">
    <bool>true</bool>
   </property>

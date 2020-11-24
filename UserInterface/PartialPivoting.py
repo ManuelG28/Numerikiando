@@ -59,13 +59,17 @@ class PartialPivoting(QtWidgets.QWidget, partial_pivoting_window.Ui_partial_pivo
         self.a_matrix = self.constructA()
         self.b_vector = self.constructB()
         if (self.a_matrix is not None) and (self.b_vector is not None):
-            ab = np.c_[self.a_matrix, self.b_vector]
-            partial_pivoting = PartialPivotingMethod(ab, self.n)
-            partial_pivoting.gaussianElimination()
-            answer = partial_pivoting.answer
-            self.matrix_answer = MatrixAnswer()
-            self.matrix_answer.show()
-            self.matrix_answer.printAnswer(answer)
+            if np.linalg.det(self.a_matrix) != 0:
+                ab = np.c_[self.a_matrix, self.b_vector]
+                partial_pivoting = PartialPivotingMethod(ab, self.n)
+                partial_pivoting.gaussianElimination()
+                answer = partial_pivoting.answer
+                self.matrix_answer = MatrixAnswer()
+                self.matrix_answer.show()
+                self.matrix_answer.printAnswer(answer)
+            else:
+                self.showRestriction(
+                    'The determinant of A matrix is equal to zero,\n you can not run this method.')
     
     def createAttributes(self):
         self.a_X = 90

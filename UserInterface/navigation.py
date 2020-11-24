@@ -1,4 +1,7 @@
-import home
+import home_window
+import methods_window
+import help_window
+import online_window
 import linear_window
 import nonlinear_window
 import interpolation_window
@@ -35,9 +38,32 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class HomeWindow(QtWidgets.QMainWindow, home.Ui_HomeWindow):
+class HomeWindow(QtWidgets.QMainWindow,home_window.Ui_home_window):
     def __init__(self, parent=None):
         super(HomeWindow, self).__init__(parent)
+        self.setupUi(self)
+        self.methods_button.clicked.connect(self.clickMethods)
+        self.help_button.clicked.connect(self.clickHelp)
+        self.online_button.clicked.connect(self.clickOnline)
+        self.show()
+
+    def clickMethods(self):
+        self.methods = MethodsWindow()
+        self.methods.show()
+        self.close()
+
+    def clickHelp(self):
+        self.help = HelpWindow()
+        self.help.show()
+
+
+    def clickOnline(self):
+        self.online = OnlineWindow()
+        self.online.show()
+
+class MethodsWindow(QtWidgets.QMainWindow, methods_window.Ui_methods_window):
+    def __init__(self, parent=None):
+        super(MethodsWindow, self).__init__(parent)
         self.setupUi(self)
         self.linear_button.clicked.connect(self.clickLinear)
         self.nonlinear_button.clicked.connect(self.clickNonLinear)
@@ -59,6 +85,15 @@ class HomeWindow(QtWidgets.QMainWindow, home.Ui_HomeWindow):
         self.interpolation.show()
         self.close()
 
+class HelpWindow(QtWidgets.QMainWindow, help_window.Ui_help_window):
+    def __init__(self, parent=None):
+        super(HelpWindow, self).__init__(parent)
+        self.setupUi(self)
+
+class OnlineWindow(QtWidgets.QMainWindow, online_window.Ui_online_window):
+    def __init__(self, parent=None):
+        super(OnlineWindow, self).__init__(parent)
+        self.setupUi(self)
 
 class LinearWindow(QtWidgets.QWidget, linear_window.Ui_linear):
     def __init__(self, parent=None):

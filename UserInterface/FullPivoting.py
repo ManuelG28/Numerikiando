@@ -100,13 +100,17 @@ class FullPivoting(QtWidgets.QWidget, full_pivoting_window.Ui_full_pivoting):
         self.a_matrix = self.constructA()
         self.b_vector = self.constructB()
         if (self.a_matrix is not None) and (self.b_vector is not None):
-            ab = np.c_[self.a_matrix, self.b_vector]
-            full_pivoting = FullPivotingMethod(ab, self.n)
-            full_pivoting.gaussianElimination()
-            answer = full_pivoting.answer
-            self.matrix_answer = MatrixAnswer()
-            self.matrix_answer.show()
-            self.matrix_answer.printAnswer(answer)
+            if np.linalg.det(self.a_matrix) != 0:
+                ab = np.c_[self.a_matrix, self.b_vector]
+                full_pivoting = FullPivotingMethod(ab, self.n)
+                full_pivoting.gaussianElimination()
+                answer = full_pivoting.answer
+                self.matrix_answer = MatrixAnswer()
+                self.matrix_answer.show()
+                self.matrix_answer.printAnswer(answer)
+            else:
+                self.showRestriction(
+                    'The determinant of A matrix is equal to zero,\n you can not run this method.')
 
     def constructA(self):
         a_matrix = np.empty((self.n, self.n))
