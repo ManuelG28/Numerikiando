@@ -4,6 +4,7 @@ import help_window
 import online_window
 import linear_window
 import nonlinear_window
+import about_window
 import interpolation_window
 import lu_factoring_window
 import direct_factoring_window
@@ -45,6 +46,7 @@ class HomeWindow(QtWidgets.QMainWindow,home_window.Ui_home_window):
         self.methods_button.clicked.connect(self.clickMethods)
         self.help_button.clicked.connect(self.clickHelp)
         self.online_button.clicked.connect(self.clickOnline)
+        self.about_button.clicked.connect(self.clickAbout)
         self.show()
 
     def clickMethods(self):
@@ -56,10 +58,13 @@ class HomeWindow(QtWidgets.QMainWindow,home_window.Ui_home_window):
         self.help = HelpWindow()
         self.help.show()
 
-
     def clickOnline(self):
         self.online = OnlineWindow()
         self.online.show()
+        
+    def clickAbout(self):
+        self.about = AboutWindow()
+        self.about.show()
 
 class MethodsWindow(QtWidgets.QMainWindow, methods_window.Ui_methods_window):
     def __init__(self, parent=None):
@@ -88,6 +93,11 @@ class MethodsWindow(QtWidgets.QMainWindow, methods_window.Ui_methods_window):
 class HelpWindow(QtWidgets.QMainWindow, help_window.Ui_help_window):
     def __init__(self, parent=None):
         super(HelpWindow, self).__init__(parent)
+        self.setupUi(self)
+
+class AboutWindow(QtWidgets.QMainWindow, about_window.Ui_about_window):
+    def __init__(self, parent=None):
+        super(AboutWindow, self).__init__(parent)
         self.setupUi(self)
 
 class OnlineWindow(QtWidgets.QMainWindow, online_window.Ui_online_window):
