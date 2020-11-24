@@ -43,7 +43,7 @@ class FullPivotingMethod:
                 self.ab[i][x-1] = self.ab[i][column]
                 self.ab[i][column] = aux
             auxPositions = self.positions[x-1]
-            self.positions[x-1] = column
+            self.positions[x-1] = self.positions[column]
             self.positions[column] = auxPositions
 
         if(row != x-1):
@@ -60,8 +60,8 @@ class FullPivotingMethod:
             for p in range(i+1, self.n+1):
                 ctrl = ctrl + self.ab[i-1][p-1] * answers[p-1]
             answers[i-1] = (self.ab[i-1][self.n]-ctrl)/self.ab[i-1][i-1]
-            self.answer += 'x'+str(self.positions[i-1]+1)+' = '+str(answers[i-1]+1)+"\n"+"\n"  
-            print("x", (self.positions[i-1]+1), "=", answers[i-1])
+            self.answer += 'x'+str(self.positions[i-1])+' = '+str(answers[i-1])+"\n"+"\n"  
+            print("x", self.positions[i-1], "=", answers[i-1])
 
 
     def fillPostions(self):
