@@ -27,6 +27,10 @@ import LuSimple
 import InterNewton
 import Lagrange
 import Vandermonde
+import GaussianEliminationSimple
+import Crout
+import Doolittle
+import Cholesky
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -225,6 +229,9 @@ class DirectFactoringWindow(QtWidgets.QWidget, direct_factoring_window.Ui_direct
 
         self.back_button.clicked.connect(self.clickBack)
         self.home_button.clicked.connect(self.clickHome)
+        self.crout_button.clicked.connect(self.clickCrout)
+        self.doolittle_button.clicked.connect(self.clickDoolittle)
+        self.cholesky_button.clicked.connect(self.clickCholesky)
         self.show()
 
     def clickHome(self):
@@ -235,6 +242,21 @@ class DirectFactoringWindow(QtWidgets.QWidget, direct_factoring_window.Ui_direct
     def clickBack(self):
         self.linear = LinearWindow()
         self.linear.show()
+        self.close()
+
+    def clickCrout(self):
+        self.crout = Crout.Crout()
+        self.crout.show()
+        self.close()
+
+    def clickDoolittle(self):
+        self.doolittle = Doolittle.Doolittle()
+        self.doolittle.show()
+        self.close()
+    
+    def clickCholesky(self):
+        self.cholesky = Cholesky.Cholesky()
+        self.cholesky.show()
         self.close()
 
 
@@ -285,6 +307,7 @@ class GaussianWindow(QtWidgets.QWidget, gaussian_elimination_window.Ui_gaussian_
         self.home_button.clicked.connect(self.clickHome)
         self.partial_button.clicked.connect(self.clickPartial)
         self.full_button.clicked.connect(self.clickFull)
+        self.simple_button.clicked.connect(self.clickSimple)
         self.show()
 
     def clickHome(self):
@@ -305,6 +328,11 @@ class GaussianWindow(QtWidgets.QWidget, gaussian_elimination_window.Ui_gaussian_
     def clickPartial(self):
         self.partial_pivoting = PartialPivoting.PartialPivoting()
         self.partial_pivoting.show()
+        self.close()
+
+    def clickSimple(self):
+        self.simple_elim = GaussianEliminationSimple.GaussianEliminationSimple()
+        self.simple_elim.show()
         self.close()
 
 
