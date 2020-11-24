@@ -2,6 +2,7 @@ import fake_ruke_window
 import math
 from CustomDialog import CustomDialog
 from PyQt5 import QtCore, QtGui, QtWidgets
+from sympy import *
 
 class FakeRule(QtWidgets.QWidget, fake_ruke_window.Ui_fake_rule):
     def __init__(self, parent=None):
@@ -9,12 +10,12 @@ class FakeRule(QtWidgets.QWidget, fake_ruke_window.Ui_fake_rule):
         self.setupUi(self)
 
         self.header = self.fake_rule_table.horizontalHeader()
-        self.header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
-        self.header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
-        self.header.setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeToContents)
-        self.header.setSectionResizeMode(3, QtWidgets.QHeaderView.ResizeToContents)
-        self.header.setSectionResizeMode(4, QtWidgets.QHeaderView.ResizeToContents)
-        self.header.setSectionResizeMode(5, QtWidgets.QHeaderView.ResizeToContents)
+        self.header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+        self.header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+        self.header.setSectionResizeMode(2, QtWidgets.QHeaderView.Stretch)
+        self.header.setSectionResizeMode(3, QtWidgets.QHeaderView.Stretch)
+        self.header.setSectionResizeMode(4, QtWidgets.QHeaderView.Stretch)
+        self.header.setSectionResizeMode(5, QtWidgets.QHeaderView.Stretch)
 
         self.run_button.clicked.connect(self.runMethod)
 
@@ -26,6 +27,8 @@ class FakeRule(QtWidgets.QWidget, fake_ruke_window.Ui_fake_rule):
         self.nMaxCounter=0
         self.nMaximo=int(self.nMax.toPlainText())
         self.dataTable=[]
+        if(self.pa*self.pb>=0):
+            self.showAlert("This method won't have convergence because there isn't sing change, please rerun it")
         answ=self.iterate(self.pa, self.pb)
         row = 0
         self.fake_rule_table.setRowCount(len(self.dataTable))
@@ -41,38 +44,40 @@ class FakeRule(QtWidgets.QWidget, fake_ruke_window.Ui_fake_rule):
 
     def showFinalValue(self, answ):
         dialog = CustomDialog(self, "The root reached was: "+str(answ))
+        dialog.setWindowTitle("Success!")
         dialog.show()
 
     def iterate(self, a, b):
-        aEvaluated=self.evaluateF(a)
-        bEvaluated=self.evaluateF(b)
+        x = Symbol('x')
+        f= lambda x: eval(self.functionF)
+        aEvaluated=f(a)
+        bEvaluated=f(b)
         r=((a*bEvaluated)-(b*aEvaluated))/(bEvaluated-aEvaluated)
-        rEvaluated=self.evaluateF(r)
+        rEvaluated=f(r)
         if rEvaluated*aEvaluated<0:
             if abs(r-b)<self.tol or self.nMaxCounter==self.nMax:
-                self.dataTable.append({"iter":self.nMaxCounter, "a":a, "xm":r, "b":b,"f(x)":rEvaluated, "Err":abs(r-b)})
+                self.dataTable.append({"iter":self.nMaxCounter, "a":round(a,10), "xm":round(r,10), "b":round(b,10),"f(x)":round(rEvaluated,10), "Err":round(abs(r-b),10)})
                 return r
             else:
-                self.dataTable.append({"iter":self.nMaxCounter, "a":a, "xm":r, "b":b,"f(x)":rEvaluated, "Err":abs(r-b)})
+                self.dataTable.append({"iter":self.nMaxCounter, "a":round(a,10), "xm":round(r,10), "b":round(b,10),"f(x)":round(rEvaluated,10), "Err":round(abs(r-b),10)})
                 self.nMaxCounter+=1
             return self.iterate(a,r)
         elif rEvaluated*bEvaluated<0:
             if abs(r-a)<self.tol or self.nMaxCounter==self.nMax:
-                self.dataTable.append({"iter":self.nMaxCounter, "a":a, "xm":r, "b":b,"f(x)":rEvaluated, "Err":abs(r-a)})
+                self.dataTable.append({"iter":self.nMaxCounter, "a":round(a,10), "xm":round(r,10), "b":round(b,10),"f(x)":round(rEvaluated,10), "Err":round(abs(r-a),10)})
                 return r
             else:
-                self.dataTable.append({"iter":self.nMaxCounter, "a":a, "xm":r, "b":b,"f(x)":rEvaluated, "Err":abs(r-a)})
+                self.dataTable.append({"iter":self.nMaxCounter, "a":round(a,10), "xm":round(r,10), "b":round(b,10),"f(x)":round(rEvaluated,10), "Err":round(abs(r-a),10)})
                 self.nMaxCounter+=1
                 return self.iterate(r,b)
         else:
             self.showException("There isn't sign change")
             return 0
 
+    def showAlert(self, msg):
+        dialog = CustomDialog(self, "WARNING: "+str(msg))
+        dialog.show()
+
     def showException(self, msg):
         dialog = CustomDialog(self, msg)
         dialog.show()
-
-    def evaluateF(self, x):
-        f= lambda x: eval(self.functionF)
-        y= f(x)
-        return y

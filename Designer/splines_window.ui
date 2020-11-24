@@ -122,7 +122,7 @@ border-radius: 12px;
 </string>
    </property>
    <property name="text">
-    <string>Linear Plotter</string>
+    <string>Linear Spline</string>
    </property>
   </widget>
   <widget class="QPushButton" name="quadratic_button">
@@ -142,7 +142,7 @@ border-radius: 12px;
 </string>
    </property>
    <property name="text">
-    <string>Quadratic Plotter</string>
+    <string>Square Spline</string>
    </property>
   </widget>
   <widget class="QPushButton" name="cubric_button">
@@ -162,7 +162,7 @@ border-radius: 12px;
 </string>
    </property>
    <property name="text">
-    <string>Cubric Tracer</string>
+    <string>Cubric Spline</string>
    </property>
   </widget>
   <widget class="QPushButton" name="back_button">

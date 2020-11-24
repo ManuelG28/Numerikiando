@@ -2,6 +2,7 @@ import newton_window
 import math
 from CustomDialog import CustomDialog
 from PyQt5 import QtCore, QtGui, QtWidgets
+from sympy import *
 
 class Newton(QtWidgets.QWidget, newton_window.Ui_Newton):
     def __init__(self, parent=None):
@@ -9,10 +10,10 @@ class Newton(QtWidgets.QWidget, newton_window.Ui_Newton):
         self.setupUi(self)
 
         self.header = self.newton_table.horizontalHeader()
-        self.header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
-        self.header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
-        self.header.setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeToContents)
-        self.header.setSectionResizeMode(3, QtWidgets.QHeaderView.ResizeToContents)
+        self.header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+        self.header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+        self.header.setSectionResizeMode(2, QtWidgets.QHeaderView.Stretch)
+        self.header.setSectionResizeMode(3, QtWidgets.QHeaderView.Stretch)
 
         self.run_button.clicked.connect(self.runMethod)
 
@@ -24,6 +25,10 @@ class Newton(QtWidgets.QWidget, newton_window.Ui_Newton):
         self.nMaxCounter=0
         self.nMaximo=int(self.nMax.toPlainText())
         self.dataTable=[]
+        x = Symbol('x')
+        f= lambda x: eval(self.functionF)
+        self.dataTable.append({"iter":self.nMaxCounter, "xi":self.xInit, "f(x)":f(self.xInit), "Err":0})
+        self.nMaxCounter+=1
         answ=self.iterate(self.xInit)
         row = 0
         self.newton_table.setRowCount(len(self.dataTable))
@@ -40,22 +45,15 @@ class Newton(QtWidgets.QWidget, newton_window.Ui_Newton):
         dialog.setWindowTitle("Success!")
         dialog.show()
 
-    def iterate(self, x):
-        xi= x-(self.evaluateF(x)/self.evaluateFDerived(x))
-        if abs( xi - x ) < self.tol or self.nMaxCounter == self.nMax:
-            self.dataTable.append({"iter":self.nMaxCounter, "xi":xi, "f(x)":self.evaluateF(xi), "Err":abs(xi-x)})
+    def iterate(self, currX):
+        x = Symbol('x')
+        f= lambda x: eval(self.functionF)
+        fd= lambda x: eval(self.functionFderiv)
+        xi= currX-(f(currX)/fd(currX))
+        if abs( xi - currX ) < self.tol or self.nMaxCounter == self.nMax:
+            self.dataTable.append({"iter":self.nMaxCounter, "xi":round(xi,10), "f(x)":round(f(xi),10), "Err":round(abs(xi-currX),10)})
             return xi
         else:
-            self.dataTable.append({"iter":self.nMaxCounter, "xi":xi, "f(x)":self.evaluateF(xi), "Err":abs(xi-x)})
+            self.dataTable.append({"iter":self.nMaxCounter, "xi":round(xi,10), "f(x)":round(f(xi),10), "Err":round(abs(xi-currX),10)})
             self.nMaxCounter+=1
             return self.iterate(xi)
-
-    def evaluateF(self, x):
-        f= lambda x: eval(self.functionF)
-        y= f(x)
-        return y
-    
-    def evaluateFDerived(self, x):
-        fd= lambda x: eval(self.functionFderiv)
-        y= fd(x)
-        return y

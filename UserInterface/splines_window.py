@@ -87,9 +87,9 @@ class Ui_splines(object):
     def retranslateUi(self, splines):
         _translate = QtCore.QCoreApplication.translate
         splines.setWindowTitle(_translate("splines", "Form"))
-        self.linear_button.setText(_translate("splines", "Linear Plotter"))
-        self.quadratic_button.setText(_translate("splines", "Quadratic Plotter"))
-        self.cubric_button.setText(_translate("splines", "Cubric Tracer"))
+        self.linear_button.setText(_translate("splines", "Linear Spline"))
+        self.quadratic_button.setText(_translate("splines", "Square Spline"))
+        self.cubric_button.setText(_translate("splines", "Cubric Spline"))
 import link_rc
 
 

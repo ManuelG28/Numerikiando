@@ -2,6 +2,7 @@ import fixed_point_window
 import math
 from CustomDialog import CustomDialog
 from PyQt5 import QtCore, QtGui, QtWidgets
+from sympy import *
 
 class FixedPoint(QtWidgets.QWidget, fixed_point_window.Ui_fixed_point):
     def __init__(self, parent=None):
@@ -9,11 +10,11 @@ class FixedPoint(QtWidgets.QWidget, fixed_point_window.Ui_fixed_point):
         self.setupUi(self)
 
         self.header = self.fixed_point_table.horizontalHeader()
-        self.header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
-        self.header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
-        self.header.setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeToContents)
-        self.header.setSectionResizeMode(3, QtWidgets.QHeaderView.ResizeToContents)
-        self.header.setSectionResizeMode(4, QtWidgets.QHeaderView.ResizeToContents)
+        self.header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+        self.header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+        self.header.setSectionResizeMode(2, QtWidgets.QHeaderView.Stretch)
+        self.header.setSectionResizeMode(3, QtWidgets.QHeaderView.Stretch)
+        self.header.setSectionResizeMode(4, QtWidgets.QHeaderView.Stretch)
 
         self.run_button.clicked.connect(self.runMethod)
 
@@ -39,24 +40,19 @@ class FixedPoint(QtWidgets.QWidget, fixed_point_window.Ui_fixed_point):
 
     def showFinalValue(self, answ):
         dialog = CustomDialog(self, "The root reached was: "+str(answ))
+        dialog.setWindowTitle("Success!")
         dialog.show()
 
-    def iterate(self, x):
-        xi= self.evaluateG(x)
-        if abs( xi - x ) < self.tol or self.nMaxCounter == self.nMax:
-            self.dataTable.append({"iter":self.nMaxCounter, "xi":x, "g(x)":xi, "f(x)":self.evaluateF(x), "Err":abs(xi-x)})
+    def iterate(self, currX):
+        x = Symbol('x')
+        f= lambda x: eval(self.functionF)
+        g= lambda x: eval(self.functionG)
+        xi= g(currX)
+        if (abs( xi - currX ) < self.tol) or (self.nMaxCounter == self.nMax):
+            self.dataTable.append({"iter":self.nMaxCounter, "xi":round(currX,10), "g(x)":round(xi,10), "f(x)":round(f(currX),10), "Err":round(abs(xi-currX),10)})
             return xi
         else:
-            self.dataTable.append({"iter":self.nMaxCounter, "xi":x, "g(x)":xi, "f(x)":self.evaluateF(x), "Err":abs(xi-x)})
+            self.dataTable.append({"iter":self.nMaxCounter, "xi":round(currX,10), "g(x)":round(xi,10), "f(x)":round(f(currX),10), "Err":round(abs(xi-currX),10)})
             self.nMaxCounter+=1
             return self.iterate(xi)
 
-    def evaluateF(self, x):
-        f= lambda x: eval(self.functionF)
-        y= f(x)
-        return y
-    
-    def evaluateG(self, x):
-        g= lambda x: eval(self.functionG)
-        y= g(x)
-        return y

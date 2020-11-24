@@ -104,7 +104,7 @@
    </property>
    <property name="font">
     <font>
-     <family>American Typewriter</family>
+     <family>.AppleSystemUIFont</family>
      <pointsize>14</pointsize>
      <kerning>true</kerning>
     </font>
@@ -113,7 +113,7 @@
   <widget class="QTextEdit" name="x0">
    <property name="geometry">
     <rect>
-     <x>540</x>
+     <x>530</x>
      <y>250</y>
      <width>71</width>
      <height>41</height>
@@ -144,7 +144,7 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>530</x>
+     <x>520</x>
      <y>200</y>
      <width>81</width>
      <height>41</height>
@@ -268,9 +268,9 @@ border-radius: 12px;
   <widget class="QTextEdit" name="tolerance">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>720</x>
      <y>250</y>
-     <width>71</width>
+     <width>151</width>
      <height>41</height>
     </rect>
    </property>
@@ -283,7 +283,7 @@ border-radius: 12px;
   <widget class="QTextEdit" name="nMax">
    <property name="geometry">
     <rect>
-     <x>740</x>
+     <x>630</x>
      <y>250</y>
      <width>71</width>
      <height>41</height>
@@ -314,7 +314,7 @@ border-radius: 12px;
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>630</x>
+     <x>740</x>
      <y>200</y>
      <width>81</width>
      <height>41</height>
@@ -330,7 +330,7 @@ border-radius: 12px;
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>730</x>
+     <x>630</x>
      <y>200</y>
      <width>81</width>
      <height>41</height>
