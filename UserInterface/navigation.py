@@ -94,6 +94,7 @@ class OnlineWindow(QtWidgets.QMainWindow, online_window.Ui_online_window):
     def __init__(self, parent=None):
         super(OnlineWindow, self).__init__(parent)
         self.setupUi(self)
+        self.label.setOpenExternalLinks(True)
 
 class LinearWindow(QtWidgets.QWidget, linear_window.Ui_linear):
     def __init__(self, parent=None):
